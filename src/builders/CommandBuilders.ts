@@ -1,9 +1,9 @@
 import {
-    ApplicationCommandTypes,
+    	ApplicationCommandTypes,
 	ApplicationCommandOption,
 	ApplicationCommandOptionChoice,
 	ApplicationCommandOptionType,
-	PartialApplicationCommand,
+	PartialApplicationCommand
 } from "../structures";
 
 export class CommandBuilder {
@@ -14,7 +14,7 @@ export class CommandBuilder {
 
 	constructor() {
 		this.options = [];
-        this.type = 1;
+        	this.type = 1;
 	}
 
 	public setName(name: string): CommandBuilder {
@@ -29,9 +29,9 @@ export class CommandBuilder {
 	public setDescription(description: string): CommandBuilder {
 		// User and Message commands (Context Menu commands) does not support descriptions
 		if (this.type !== 1) {
-            throw new Error(
-                "A context menu command cannot have a description"
-            );
+            		throw new Error(
+                		"A context menu command cannot have a description"
+            		);
 		}
 
 		if (description.length < 1 || description.length > 100) {
@@ -58,7 +58,7 @@ export class CommandBuilder {
 			name: this.name,
 			description: this.description,
 			options: this.options,
-            type: this.type,
+            		type: this.type,
 		};
 	}
 }
